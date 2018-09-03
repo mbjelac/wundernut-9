@@ -1,0 +1,11 @@
+{
+  "name": "wundernut-9",
+  "version": "1.0.0",
+  "description": "Wundernut 9 solution made with TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "mbjelac",
+  "license": "MIT"
+}
