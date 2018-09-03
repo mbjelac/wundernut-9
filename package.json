@@ -4,8 +4,12 @@
   "description": "Wundernut 9 solution made with TDD",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "test": "jest"
   },
   "author": "mbjelac",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
 }
