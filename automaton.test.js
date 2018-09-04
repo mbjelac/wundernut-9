@@ -1,40 +1,72 @@
-test('returns next row according to the two rules', () => {
+test('generates rows according to the two rules', () => {
 
-  expectNextRow(
+  function shouldGenerate(initialRow, expectedGeneratedRows) {
+
+    expect(
+      generateRows(row, 5))
+      .toEqual(expectedGeneratedRows);
+  }
+
+  shouldGenerate(
     '...........',
-    '...........');
+    [
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+    ]);
 
-  expectNextRow(
+  shouldGenerate(
     '#..........',
-    '...........');
+    [
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+    ]);
 
-  expectNextRow(
+  shouldGenerate(
     '.#.........',
-    '...........');
+    [
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+    ]);
 
-  expectNextRow(
+  shouldGenerate(
     '.....#.....',
-    '...........');
+    [
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+      '...........',
+    ]);
 
-  expectNextRow(
+  shouldGenerate(
     '.##........',
-    '#..#.......');
+    [
+      '#..#.......',
+      '.##........',
+      '#..#.......',
+      '.##........',
+      '#..#.......',
+    ]);
 
-  expectNextRow(
+  shouldGenerate(
     '...#.###...',
-    '....#.###..');
-
-  expectNextRow(
-    '....#.###..',
-    '.....#.###.',
+    [
+      '....#.###..',
+      '.....#.###.',
+      '......#.###',
+      '.......#.##',
+      '........#.#',
+    ]
   );
-
-
 });
 
-function expectNextRow(row, expectedNextRow) {
 
-  expect(
-    getNextRow(row))
-    .toEqual(expectedNextRow);
-}
