@@ -1,9 +1,11 @@
+import { generateRows } from "./row-generator";
+
 test('generates rows according to the two rules', () => {
 
   function shouldGenerate(initialRow, expectedGeneratedRows) {
 
     expect(
-      generateRows(row, 5))
+      generateRows(initialRow, 5))
       .toEqual(expectedGeneratedRows);
   }
 
