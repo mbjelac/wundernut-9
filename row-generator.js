@@ -1,4 +1,4 @@
-import { getLastRow } from "./utils";
+import { getLastElement } from "./utils";
 
 export function generateRows(row, numberOfRows) {
 
@@ -6,7 +6,7 @@ export function generateRows(row, numberOfRows) {
 
   for (let i = 0; i < numberOfRows; i++) {
 
-    const lastRow = getLastRow(generatedRows);
+    const lastRow = getLastElement(generatedRows);
 
     generatedRows.push(generateRow(lastRow));
   }

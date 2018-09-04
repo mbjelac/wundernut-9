@@ -1,14 +1,8 @@
-export function getLastRow(rows) {
+export function getLastElement(array) {
 
-  if (!Array.isArray(rows)) {
-    throw Error('Not an array: ' + rows);
-  }
-
-  const length = rows.length;
-
-  if (length <= 0) {
+  if (!array.length) {
     throw Error('Array is empty!');
   }
 
-  return rows[length - 1];
+  return array.slice(-1).pop();
 }

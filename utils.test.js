@@ -1,30 +1,41 @@
-import { getLastRow } from "./utils";
+import { getLastElement } from "./utils";
 
 describe('get last row', () => {
 
   test('thorns', () => {
 
-    expect(() => getLastRow()).toThrow();
-    expect(() => getLastRow(undefined)).toThrow();
-    expect(() => getLastRow(null)).toThrow();
-    expect(() => getLastRow('foo')).toThrow();
-    expect(() => getLastRow(true)).toThrow();
-    expect(() => getLastRow(123)).toThrow();
-    expect(() => getLastRow(123.456)).toThrow();
-    expect(() => getLastRow({ x: 'y' })).toThrow();
-    expect(() => getLastRow([])).toThrow();
+    expect(() => getLastElement()).toThrow();
+    expect(() => getLastElement(undefined)).toThrow();
+    expect(() => getLastElement(null)).toThrow();
+    expect(() => getLastElement('foo')).toThrow();
+    expect(() => getLastElement(true)).toThrow();
+    expect(() => getLastElement(123)).toThrow();
+    expect(() => getLastElement(123.456)).toThrow();
+    expect(() => getLastElement({ x: 'y' })).toThrow();
+    expect(() => getLastElement([])).toThrow();
+  });
+
+  test('array is unchanged', ()=>{
+
+    const array = [1, 2, 3, 4, 5];
+
+    getLastElement(array);
+    getLastElement(array);
+    getLastElement(array);
+
+    expect(array).toEqual([1, 2, 3, 4, 5]);
   });
 
   test('gold', () => {
 
-    expect(getLastRow([1])).toEqual(1);
-    expect(getLastRow(['foo'])).toEqual('foo');
-    expect(getLastRow([1, 2])).toEqual(2);
-    expect(getLastRow(['foo', 'bar'])).toEqual('bar');
-    expect(getLastRow(['foo', 'bar', 3])).toEqual(3);
-    expect(getLastRow([undefined, null, 3])).toEqual(3);
-    expect(getLastRow([undefined, null])).toEqual(null);
-    expect(getLastRow([null, undefined])).toEqual(undefined);
-    expect(getLastRow([1, 2, 3, 4, 5, 6, 7, 8])).toEqual(8);
+    expect(getLastElement([1])).toEqual(1);
+    expect(getLastElement(['foo'])).toEqual('foo');
+    expect(getLastElement([1, 2])).toEqual(2);
+    expect(getLastElement(['foo', 'bar'])).toEqual('bar');
+    expect(getLastElement(['foo', 'bar', 3])).toEqual(3);
+    expect(getLastElement([undefined, null, 3])).toEqual(3);
+    expect(getLastElement([undefined, null])).toEqual(null);
+    expect(getLastElement([null, undefined])).toEqual(undefined);
+    expect(getLastElement([1, 2, 3, 4, 5, 6, 7, 8])).toEqual(8);
   });
 });
