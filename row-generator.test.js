@@ -5,7 +5,7 @@ test('generates rows according to the two rules', () => {
   function shouldGenerate(initialRow, expectedGeneratedRows) {
 
     expect(
-      generateRows(initialRow, 5))
+      generateRows(initialRow, 6))
       .toEqual(expectedGeneratedRows);
   }
 
@@ -17,11 +17,13 @@ test('generates rows according to the two rules', () => {
       '...........',
       '...........',
       '...........',
+      '...........',
     ]);
 
   shouldGenerate(
     '#..........',
     [
+      '#..........',
       '...........',
       '...........',
       '...........',
@@ -32,6 +34,7 @@ test('generates rows according to the two rules', () => {
   shouldGenerate(
     '.#.........',
     [
+      '.#.........',
       '...........',
       '...........',
       '...........',
@@ -42,6 +45,7 @@ test('generates rows according to the two rules', () => {
   shouldGenerate(
     '.....#.....',
     [
+      '.....#.....',
       '...........',
       '...........',
       '...........',
@@ -52,6 +56,7 @@ test('generates rows according to the two rules', () => {
   shouldGenerate(
     '.##........',
     [
+      '.##........',
       '#..#.......',
       '.##........',
       '#..#.......',
@@ -62,6 +67,7 @@ test('generates rows according to the two rules', () => {
   shouldGenerate(
     '...#.###...',
     [
+      '...#.###...',
       '....#.###..',
       '.....#.###.',
       '......#.###',
