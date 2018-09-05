@@ -77,8 +77,6 @@ test('small row', () => {
   countShouldBe('##.', 2)(2);
 });
 
-const FULL_VALUE = '#';
-
 function countShouldBe(row, index) {
-  return expectedCount => expect(countNeighbours(row, index, FULL_VALUE)).toEqual(expectedCount);
+  return expectedCount => expect(countNeighbours(row, index)).toEqual(expectedCount);
 }

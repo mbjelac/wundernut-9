@@ -1,15 +1,12 @@
 import { countNeighbours } from "./neighbour-counter";
 import { shouldFill } from "./fill-rules";
-
-const FULL = '#';
-const EMPTY = '.';
-
+import { EMPTY, FULL } from "../../cell-values";
 
 export function generateCell(row, index) {
 
   validate(row, index);
 
-  const neighbours = countNeighbours(row, index, FULL);
+  const neighbours = countNeighbours(row, index);
 
   const result = shouldFill(row[index] === FULL, neighbours);
 
