@@ -1,3 +1,5 @@
+import { countNeighbours } from "./neighbour-counter";
+
 const FULL = '#';
 const EMPTY = '.';
 
@@ -6,7 +8,7 @@ export function generateCell(row, index) {
 
   validate(row, index);
 
-  const neighbours = countNeighbours(row, index);
+  const neighbours = countNeighbours(row, index, FULL);
 
   const result = shouldFill(row[index] === FULL, neighbours);
 
@@ -20,18 +22,6 @@ function validate(row, index) {
   }
 }
 
-export function countNeighbours(row, index) {
-
-  let count = 0;
-
-  for (let i = index - 2; i <= index + 2; i++) {
-    if (i >= 0 && i < row.length && i !== index && row[i] === FULL) {
-      count++;
-    }
-  }
-
-  return count;
-}
 
 export function shouldFill(isCellAboveFilled, neighbours) {
 
