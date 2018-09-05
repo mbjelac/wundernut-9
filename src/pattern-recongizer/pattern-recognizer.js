@@ -1,4 +1,4 @@
-import { VANISHING } from "./pattern-types";
+import { OTHER, VANISHING } from "./pattern-types";
 
 
 export function recognizePattern(pattern) {
@@ -9,9 +9,22 @@ export function recognizePattern(pattern) {
 }
 
 export function selectRecognizedPattern(patternMatches) {
-  return undefined;
+
+  const recognizedPattern = patternMatches.find(pattern => pattern.recognized);
+
+  return recognizedPattern !== undefined ? recognizedPattern.type : OTHER;
 }
 
-function recognizeVanishingPattern(pattern) {
+export function recognizeVanishingPattern(pattern) {
+  return pattern
+    .filter(isEmpty)
+    .length > 0;
+}
 
+function isEmpty(row) {
+
+  return row
+    .split('')
+    .filter(c => c !== '.')
+    .length === 0;
 }
