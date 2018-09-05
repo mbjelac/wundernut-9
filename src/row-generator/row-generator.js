@@ -1,4 +1,4 @@
-import { getLastElement } from "./utils";
+import { getLastElement } from "../utils/utils";
 import { generateCell } from "./cell-generator";
 
 export function generateRows(row, numberOfRows) {
