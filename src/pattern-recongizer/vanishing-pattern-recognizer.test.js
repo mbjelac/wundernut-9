@@ -1,4 +1,4 @@
-import { recognizeVanishingPattern } from "./pattern-recognizer";
+import { recognizeVanishingPattern } from "./vanishing-pattern-recognizer";
 
 test('at least one empty row required for vanishing pattern', () => {
 

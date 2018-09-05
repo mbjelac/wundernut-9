@@ -1,4 +1,5 @@
 import { OTHER, VANISHING } from "./pattern-types";
+import { recognizeVanishingPattern } from "./vanishing-pattern-recognizer";
 
 
 export function recognizePattern(pattern) {
@@ -15,16 +16,3 @@ export function selectRecognizedPattern(patternMatches) {
   return recognizedPattern !== undefined ? recognizedPattern.type : OTHER;
 }
 
-export function recognizeVanishingPattern(pattern) {
-  return pattern
-    .filter(isEmpty)
-    .length > 0;
-}
-
-function isEmpty(row) {
-
-  return row
-    .split('')
-    .filter(c => c !== '.')
-    .length === 0;
-}
