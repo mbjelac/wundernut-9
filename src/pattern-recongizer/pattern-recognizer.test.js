@@ -1,4 +1,4 @@
-import { VANISHING } from "./pattern-types";
+import { OTHER, VANISHING } from "./pattern-types";
 import { recognizePattern } from "./pattern-recognizer";
 
 test('vanishing', () => {
@@ -81,6 +81,72 @@ test('vanishing', () => {
     '.......',
     '...#...',
   ]);
+});
+
+test('other', () => {
+
+  function example(pattern) {
+    shouldBeRecognizedAs(pattern)(OTHER);
+  }
+
+  example([]);
+
+  example([
+    '#'
+  ]);
+
+  example([
+    '#',
+    '#',
+    '#',
+    '#',
+  ]);
+
+  example([
+    '#######',
+    '#######',
+    '#######',
+    '#######',
+  ]);
+
+  example([
+    '#######',
+    '.#####.',
+    '..###..',
+    '...#...',
+  ]);
+
+  example([
+    '#.....#',
+    '#.....#',
+    '#.....#',
+    '#.....#',
+  ]);
+
+  example([
+    '#......',
+    '#......',
+    '######.',
+    '#.....#',
+    '#######',
+  ]);
+
+  example([
+    '.#####.',
+    '#.....#',
+    '######.',
+    '#......',
+    '.######',
+  ]);
+
+  example([
+    '.#####.',
+    '#.....#',
+    '#.....#',
+    '#.....#',
+    '#.....#',
+  ]);
+
 });
 
 function shouldBeRecognizedAs(pattern) {
