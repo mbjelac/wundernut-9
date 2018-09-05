@@ -1,4 +1,5 @@
 import { countNeighbours } from "./neighbour-counter";
+import { shouldFill } from "./fill-rules";
 
 const FULL = '#';
 const EMPTY = '.';
@@ -23,11 +24,3 @@ function validate(row, index) {
 }
 
 
-export function shouldFill(isCellAboveFilled, neighbours) {
-
-  return (
-    !isCellAboveFilled && (neighbours === 2 || neighbours === 3)
-  ) || (
-    isCellAboveFilled && (neighbours === 2 || neighbours === 4)
-  );
-}

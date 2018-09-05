@@ -1,4 +1,4 @@
-import { shouldFill } from "./cell-generator";
+import { shouldFill } from "./fill-rules";
 
 test('rule 1', () => {
   ruleReturns(false, 0)(false);
