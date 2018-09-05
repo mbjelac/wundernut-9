@@ -5,7 +5,7 @@ test('generates rows according to the two rules', () => {
   function shouldGenerate(initialRow, expectedGeneratedRows) {
 
     expect(
-      generateRows(initialRow, 6))
+      generateRows(initialRow, 5))
       .toEqual(expectedGeneratedRows);
   }
 
@@ -72,7 +72,19 @@ test('generates rows according to the two rules', () => {
       '.....#.###.',
       '......#.###',
       '.......#.##',
-      '........#.#',
+      '........##.',
+    ]
+  );
+
+  shouldGenerate(
+    '...###.#...',
+    [
+      '...###.#...',
+      '..###.#....',
+      '.###.#.....',
+      '###.#......',
+      '##.#.......',
+      '.##........',
     ]
   );
 });
