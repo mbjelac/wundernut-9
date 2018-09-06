@@ -27,6 +27,10 @@ test('select first recognized pattern', () => {
 
 test('return "other" when none recognized', () => {
 
+  function shouldReturnOther(items) {
+    expect(selectRecognizedPattern(items)).toEqual(OTHER);
+  }
+
   shouldReturnOther([]);
   shouldReturnOther([{}]);
   shouldReturnOther([{}, {}, {}]);
@@ -39,6 +43,3 @@ test('return "other" when none recognized', () => {
     { type: 'foobar', recognized: false }]);
 });
 
-function shouldReturnOther(items) {
-  expect(selectRecognizedPattern(items)).toEqual(OTHER);
-}
