@@ -25,32 +25,29 @@ describe('looper', () => {
     example(false, false, false, true);
   });
 
-  test('when all false, go through all loops', () => {
-
-    let count = 0;
-
-    loopUntilTrue(
-      5,
-      () => {
-        count++;
-        return false;
-      });
-
-    expect(count).toEqual(5);
-  });
-
   test('return on first true', () => {
 
-    let count = 0;
+    function example(...flags) {
 
-    loopUntilTrue(
-      5,
-      index => {
-        count++;
-        return index >= 2;
-      });
+      let count = 0;
 
-    expect(count).toEqual(3);
+      loopUntilTrue(
+        flags.length,
+        index => {
+          count++;
+          return flags[index];
+        });
+
+      return expectedCount => expect(count).toEqual(expectedCount);
+    }
+
+    example()(0);
+    example(true)(1);
+    example(false)(1);
+    example(false, false, false)(3);
+    example(false, false, true)(3);
+    example(false, true, true)(2);
+    example(true, true, true)(1);
   });
 
 });
@@ -82,11 +79,15 @@ test('is blinking', () => {
   example('1111')(false);
   example('111000')(false);
   example('00001111')(false);
+  example('010')(false);
+  example('000011110000')(false);
+
   example('101')(true);
+  example('0101')(true);
   example('10000001')(true);
   example('000000100001')(true);
-  example('000000100001')(true);
+  example('11111011111')(true);
   example('11111100001')(true);
   example('100011111111')(true);
-  example('100010101011')(true);
+  example('10101010101')(true);
 });
