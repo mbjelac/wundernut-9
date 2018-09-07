@@ -1,4 +1,4 @@
-import { BLINKING, OTHER, VANISHING } from "./pattern-types";
+import { BLINKING, GLIDING, OTHER, VANISHING } from "./pattern-types";
 import { recognizePattern } from "./pattern-recognizer";
 
 test('vanishing', () => {
@@ -203,6 +203,52 @@ test('blinking', () => {
     '#.....#',
   ]);
 
+});
+
+test('gliding', () => {
+
+  function example(pattern) {
+    shouldBeRecognizedAs(pattern)(GLIDING);
+  }
+
+  example([
+    '#.',
+    '.#',
+  ]);
+
+  example([
+    '##.....',
+    '.##....',
+    '..##...',
+    '...##..',
+    '....##.',
+    '.....##',
+  ]);
+
+  example([
+    '.....##',
+    '....##.',
+    '...##..',
+    '..##...',
+    '.##....',
+    '##.....',
+  ]);
+
+  example([
+    '..##.##',
+    '...##..',
+    '...##..',
+    '.##.##.',
+    '###....',
+    '###....',
+  ]);
+
+  example([
+    '..##.##',
+    '..##.##',
+    '..##.##',
+    '.##.##.',
+  ]);
 });
 
 function shouldBeRecognizedAs(pattern) {
