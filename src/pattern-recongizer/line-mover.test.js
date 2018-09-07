@@ -1,4 +1,4 @@
-import { moveLineLeft, moveLineRight } from "./gliding-pattern-recognizer";
+import { moveLineLeft, moveLineRight } from "./line-mover";
 
 test('move line left', () => {
 
