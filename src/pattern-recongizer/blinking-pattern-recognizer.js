@@ -3,13 +3,11 @@ import { loopUntilTrue } from "../utils/utils";
 export function recognizeBlinkingPattern(pattern) {
 
   return loopUntilTrue(
-    pattern.length,
-    index => isLineBlinking(pattern, index));
+    pattern,
+    line => isLineBlinking(pattern, line));
 }
 
-function isLineBlinking(pattern, index) {
-
-  const line = pattern[index];
+function isLineBlinking(pattern, line) {
 
   const binaryPattern = flattenToBinary(pattern, line);
 
