@@ -1,25 +1,10 @@
+import { loopUntilTrue } from "../utils/utils";
+
 export function recognizeBlinkingPattern(pattern) {
 
   return loopUntilTrue(
     pattern.length,
     index => isLineBlinking(pattern, index));
-}
-
-export function loopUntilTrue(loops, tester) {
-
-  let index = 0;
-
-  while (loops > 0) {
-
-    if (tester(index)) {
-      return true;
-    }
-
-    index++;
-    loops--;
-  }
-
-  return false;
 }
 
 function isLineBlinking(pattern, index) {

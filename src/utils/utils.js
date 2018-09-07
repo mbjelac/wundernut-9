@@ -6,3 +6,20 @@ export function getLastElement(array) {
 
   return array.slice(-1).pop();
 }
+
+export function loopUntilTrue(loops, tester) {
+
+  let index = 0;
+
+  while (loops > 0) {
+
+    if (tester(index)) {
+      return true;
+    }
+
+    index++;
+    loops--;
+  }
+
+  return false;
+}

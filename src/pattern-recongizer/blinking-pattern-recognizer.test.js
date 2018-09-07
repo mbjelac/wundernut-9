@@ -1,56 +1,6 @@
 import { flattenToBinary, isBlinking, loopUntilTrue } from "./blinking-pattern-recognizer";
 
-describe('looper', () => {
 
-  test('returns false if all false', () => {
-
-    expect(loopUntilTrue(10, () => false)).toBeFalsy();
-  });
-
-  test('returns false if 0 loops, even if tester returns true', () => {
-
-    expect(loopUntilTrue(0, () => true)).toBeFalsy();
-  });
-
-  test('returns true if at least one true', () => {
-
-    function example(...flags) {
-      expect(loopUntilTrue(flags.length, index => flags[index])).toBeTruthy();
-    }
-
-    example(true);
-    example(false, true);
-    example(false, true, false);
-    example(false, false, true);
-    example(false, false, false, true);
-  });
-
-  test('return on first true', () => {
-
-    function example(...flags) {
-
-      let count = 0;
-
-      loopUntilTrue(
-        flags.length,
-        index => {
-          count++;
-          return flags[index];
-        });
-
-      return expectedCount => expect(count).toEqual(expectedCount);
-    }
-
-    example()(0);
-    example(true)(1);
-    example(false)(1);
-    example(false, false, false)(3);
-    example(false, false, true)(3);
-    example(false, true, true)(2);
-    example(true, true, true)(1);
-  });
-
-});
 
 test('flatten to binary', () => {
 
