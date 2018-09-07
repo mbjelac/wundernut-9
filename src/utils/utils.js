@@ -7,18 +7,12 @@ export function getLastElement(array) {
   return array.slice(-1).pop();
 }
 
-export function loopUntilTrue(loops, tester) {
+export function loopUntilTrue(array, tester) {
 
-  let index = 0;
-
-  while (loops > 0) {
-
-    if (tester(index)) {
+  for (let index = 0; index < array.length; index++) {
+    if (tester(array[index])) {
       return true;
     }
-
-    index++;
-    loops--;
   }
 
   return false;

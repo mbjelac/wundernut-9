@@ -44,18 +44,18 @@ describe('loop until true', () => {
 
   test('returns false if all false', () => {
 
-    expect(loopUntilTrue(10, () => false)).toBeFalsy();
+    expect(loopUntilTrue([1, 2, 3, 4, 5, 6, 7, 8, 9], () => false)).toBeFalsy();
   });
 
   test('returns false if 0 loops, even if tester returns true', () => {
 
-    expect(loopUntilTrue(0, () => true)).toBeFalsy();
+    expect(loopUntilTrue([], () => true)).toBeFalsy();
   });
 
   test('returns true if at least one true', () => {
 
     function example(...flags) {
-      expect(loopUntilTrue(flags.length, index => flags[index])).toBeTruthy();
+      expect(loopUntilTrue(flags, flag => flag)).toBeTruthy();
     }
 
     example(true);
@@ -72,10 +72,10 @@ describe('loop until true', () => {
       let count = 0;
 
       loopUntilTrue(
-        flags.length,
-        index => {
+        flags,
+        flag => {
           count++;
-          return flags[index];
+          return flag;
         });
 
       return expectedCount => expect(count).toEqual(expectedCount);
