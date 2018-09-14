@@ -27,17 +27,17 @@ test('select first recognized pattern', () => {
 
 test('return "other" when none recognized', () => {
 
-  function shouldReturnOther(items) {
+  function exmple(items) {
     expect(selectRecognizedPattern(items)).toEqual(OTHER);
   }
 
-  shouldReturnOther([]);
-  shouldReturnOther([{}]);
-  shouldReturnOther([{}, {}, {}]);
-  shouldReturnOther([{ type: 'foo' }]);
-  shouldReturnOther([{ type: 'foo', recognized: false }]);
-  shouldReturnOther([{ type: 'foo', recognized: undefined }]);
-  shouldReturnOther([
+  exmple([]);
+  exmple([{}]);
+  exmple([{}, {}, {}]);
+  exmple([{ type: 'foo' }]);
+  exmple([{ type: 'foo', recognized: false }]);
+  exmple([{ type: 'foo', recognized: undefined }]);
+  exmple([
     { type: 'foo', recognized: false },
     { type: 'bar', recognized: false },
     { type: 'foobar', recognized: false }]);
