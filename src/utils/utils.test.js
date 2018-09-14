@@ -1,4 +1,4 @@
-import { getLastElement, loopUntilTrue } from "./utils";
+import { getLastElement, loopUntilTrue, arrayContains } from "./utils";
 
 describe('get last element', () => {
 
@@ -90,4 +90,18 @@ describe('loop until true', () => {
     example(true, true, true)(1);
   });
 
+});
+
+test('array contains', () => {
+
+  function example(pattern, line){
+    return expectedValue => expect(arrayContains(pattern, line)).toEqual(expectedValue);
+  }
+
+  example([], 'foo')(false);
+  example(['foo', 'bar'], 'bar')(true);
+  example(['foo', 'bar'], 'pop')(false);
+  example(['foo', 1, 'bar', 2], 1)(true);
+  example(['foo', undefined, 'bar'], undefined)(true);
+  example([1, 1, 1, 1, 1], 1)(true);
 });

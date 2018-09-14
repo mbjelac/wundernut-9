@@ -17,3 +17,10 @@ export function loopUntilTrue(array, tester) {
 
   return false;
 }
+
+export function arrayContains(array, element) {
+
+  return array
+    .filter(e => e === element)
+    .length > 0;
+}
