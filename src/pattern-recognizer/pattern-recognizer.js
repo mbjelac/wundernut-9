@@ -1,7 +1,7 @@
 import { BLINKING, GLIDING, OTHER, VANISHING } from "./pattern-types";
-import { recognizeVanishingPattern } from "./vanishing-pattern-recognizer";
-import { recognizeBlinkingPattern } from "./blinking-pattern-recognizer";
-import { recognizeGlidingPattern } from "./gliding-pattern-recognizer";
+import { recognizeVanishingPattern } from "./vanishing/vanishing-pattern-recognizer";
+import { recognizeBlinkingPattern } from "./blinking/blinking-pattern-recognizer";
+import { recognizeGlidingPattern } from "./gliding/gliding-pattern-recognizer";
 
 
 export function recognizePattern(pattern) {

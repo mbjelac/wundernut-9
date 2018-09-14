@@ -1,4 +1,4 @@
-import { loopUntilTrue } from "../utils/utils";
+import { loopUntilTrue } from "../../utils/utils";
 
 export function recognizeBlinkingPattern(pattern) {
 

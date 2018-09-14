@@ -1,4 +1,4 @@
-import { loopUntilTrue, arrayContains } from "../utils/utils";
+import { loopUntilTrue, arrayContains } from "../../utils/utils";
 import { moveLineLeft, moveLineRight } from "./line-mover";
 
 export function recognizeGlidingPattern(pattern) {

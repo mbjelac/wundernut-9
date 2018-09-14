@@ -1,4 +1,4 @@
-import { EMPTY } from "../cell-values";
+import { EMPTY } from "../../cell-values";
 
 export function moveLineLeft(line){
   return (line + EMPTY).substr(1);
