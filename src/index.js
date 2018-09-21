@@ -1,6 +1,8 @@
-import { generateRows } from "./row-generator/row-generator";
+import { generateRow } from "./row-generator/row-generator";
 import { recognizePattern } from "./pattern-recognizer/pattern-recognizer";
 import { loadPatternSeeds } from "./seed-loader/seed-loader";
+import { OTHER } from "./pattern-recognizer/pattern-types";
+import { getLastElement } from "./utils/utils";
 
 const NUMBER_OF_ROWS = 100;
 const PATTERN_SEEDS_PATH = 'patterns.txt';
@@ -8,8 +10,20 @@ const PATTERN_SEEDS_PATH = 'patterns.txt';
 function recognizePatternTypes(patternSeeds) {
 
   return patternSeeds.map(seed => {
-    const pattern = generateRows(seed, NUMBER_OF_ROWS);
-    return recognizePattern(pattern);
+
+    let patternType = OTHER;
+
+    const pattern = [seed];
+
+    while (patternType === OTHER && pattern.length < NUMBER_OF_ROWS) {
+
+      const lastRow = getLastElement(pattern);
+      pattern.push(generateRow(lastRow));
+
+      patternType = recognizePattern(pattern);
+    }
+
+    return patternType;
   });
 }
 
