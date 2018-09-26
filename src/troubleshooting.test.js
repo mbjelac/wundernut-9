@@ -1,5 +1,9 @@
 import { generateRow } from "./row-generator/row-generator";
 
+/*
+ * Normally, this test should be ignored.
+ * Use for manual troubleshooting or printing out generated patterns.
+ */
 xtest('shoot trouble', () => {
 
   writePattern('..#.##..##....##..##.#...#..###..#.#.#...#.###.......###########......#############');
