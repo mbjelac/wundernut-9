@@ -1,8 +1,14 @@
 import { generateRow } from "./row-generator/row-generator";
 
-test('shoot trouble', () => {
+xtest('shoot trouble', () => {
 
-  const rows = ['#...#...#...#...#...#...#...#...#...#...#....#######.##.##.#.#'];
+  writePattern('..#.##..##....##..##.#...#..###..#.#.#...#.###.......###########......#############');
+
+});
+
+function writePattern(seed) {
+
+  const rows = [seed];
 
   for (let i = 0; i < 100; i++) {
     rows.push(generateRow(rows[rows.length - 1]));
@@ -10,4 +16,4 @@ test('shoot trouble', () => {
 
   console.log(rows.join('\n'));
 
-});
+}
